@@ -14,12 +14,10 @@ namespace API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly StoreContext _context;
-        
+
         public ProductsController(StoreContext context)
         {
             _context = context;
-           
-
         }
         [HttpGet]
         public async Task<ActionResult<List<Product>>> GetProducts()
