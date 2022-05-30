@@ -5,6 +5,7 @@ import { history } from '../..';
 const sleep = () => new Promise((resolve) => setTimeout(resolve, 500));
 axios.defaults.baseURL = 'http://localhost:5000/api/';
 
+
 const responseBody = (response: AxiosResponse) => response.data;
 
 axios.interceptors.response.use(
@@ -32,7 +33,7 @@ axios.interceptors.response.use(
         break;
       case 500:
         history.push({
-          pathname: 'server-error',
+          pathname: '/server-error',
           state: { error: data },
         });
         break;

@@ -53,9 +53,10 @@ namespace API
             app.UseCors(opt =>
             {
                 opt
-                .AllowAnyHeader()
                 .AllowAnyMethod()
-                .WithOrigins("http://localhost:3000");
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials();
             });
 
             app.UseAuthorization();
